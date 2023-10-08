@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Product</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<meta charset utf="8">
+		<!--bootstrap-->
+			 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!--coustom css-->
+			<link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <!--shop-kart-js-->
+        <script src="js/simpleCart.min.js"></script>
+		<!--default-js-->
+			<script src="js/jquery-2.1.4.min.js"></script>
+		<!--bootstrap-js-->
+			<script src="js/bootstrap.min.js"></script>
+      <script src="js/data.js"></script>
+      <script src="js/catalog.js"></script>
+      <script>
+
+$( document ).ready(function() {
+  createCategories(false);
+  retrieveProduct();
+});
+      </script>
+		<!--script-->
+         <!-- FlexSlider -->
+            <script src="js/imagezoom.js"></script>
+              <script defer src="js/jquery.flexslider.js"></script>
+            <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+            <script>
+            // Can also be used with $(document).ready()
+            $(window).load(function() {
+              $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+              });
+            });
+            </script>
+        <!-- //FlexSlider-->
+        <script src="js/load_predicted_time.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="logo">
+                        <a href="products.html">E-COMMERCE PLATFORM</a>
+                    </div>
+        <div class="clearfix"></div>
+                </div>
+                <!---menu-----bar--->
+                <div class="header-botom">
+                    <div class="content white">
+                    <nav class="navbar navbar-default nav-menu" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!--/.navbar-header-->
+
+                        <div class="collapse navbar-collapse collapse-pdng" id="bs-example-navbar-collapse-1">
+                            <ul id="menu" class="nav navbar-nav nav-font">
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!--/.navbar-collapse-->
+                        <div class="clearfix"></div>
+                    </nav>
+                    <!--/.navbar-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--/.content--->
+                </div>
+                    <!--header-bottom-->
+            </div>
+        </div>
+        <div class="head-bread">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a id="labelCategory" href="#"></a></li>
+                    <li class="active">PRODUCT</li>
+                </ol>
+            </div>
+        </div>
+        <div id="product-data" class="showcase-grid">
+            <div class="container">
+                <div class="col-md-6 showcase">
+                    <div class="flexslider">
+                          <ul id="productImages" class="slides">
+                            <!--<li data-thumb="images/show.jpg">
+                                <div class="thumb-image"> <img src="images/show.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="images/show1.jpg">
+                                 <div class="thumb-image"> <img src="images/show1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="images/show2.jpg">
+                               <div class="thumb-image"> <img src="images/show2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="images/show3.jpg">
+                               <div class="thumb-image"> <img src="images/show3.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>-->
+                          </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 showcase">
+                    <div class="showcase-rt-top">
+                        <div class="pull-left shoe-name">
+                            <h3 id="labelTitle">Title</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <hr class="featurette-divider">
+                    <div class="shocase-rt-bot">
+                        <div id="hidden-vars">
+                            <input id="hidden_distance" type="hidden" value=""></input>
+                            <input id="hidden_dow_created_time" type="hidden" value=""></input>
+                            <input id="hidden_hour_created_time" type="hidden" value=""></input>
+                            <input id="hidden_destination_address_type" type="hidden" value=""></input>
+                            <input id="hidden_destination_district" type="hidden" value=""></input>
+                            <input id="hidden_suggested_pickup_supplier" type="hidden" value=""></input>
+                            <input id="hidden_departure_region" type="hidden" value=""></input>
+                            <input id="hidden_route" type="hidden" value=""></input>
+                            <input id="hidden_datetime_created_at" type="hidden" value="2023-10-08T09:15:37"></input>
+                        </div>
+                        <div class="float-qty-chart">
+                        <ul>
+                            <li>
+                                <h3>Người bán</h3>
+                                <select id="seller_id" class="form-control siz-chrt">
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        </div>
+
+                        <div class="float-qty-chart">
+                        <ul>
+                            <li>
+                                <h3>Đơn vị vận chuyển</h3>
+                                <select id="suggested_deli_supplier" class="form-control siz-chrt">
+                                  <option value="0">Ninja_Van</option>
+                                  <option value="1">Be</option>
+                                  <option value="2">Ahamove</option>
+                                  <option value="3">GHN</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        </div>
+
+                        <div class="float-qty-chart">
+                        <ul>
+                            <li>
+                                <br />
+                                <h3 style="color: blue">Dự kiến giao</h3>
+                                <p id="predicted_time" style="color: red; margin: 15px; font-size: 30px"></p>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        </div>
+
+
+                        <ul>
+                            <li class="ad-2-crt simpleCart_shelfItem">
+                                <a style="background: blue" id="doPredictButton" class="btn" href="#" role="button">Tính thời gian dự kiến giao</a>
+                            </li>
+
+                            <li class="ad-2-crt simpleCart_shelfItem">
+                                <a class="btn" href="#" role="button">Đặt hàng ngay!</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="products-gallery">
+           <div class="container">
+
+               <div id="productsList" class="col-md-12 grid-gallery"></div>
+
+        </div>
+
+        <div class="copy-rt">
+            <div class="container">
+            </div>
+        </div>
+    </body>
+</html>

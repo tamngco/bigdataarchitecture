@@ -405,4 +405,15 @@ services:
       airflow-init:
         condition: service_completed_successfully
   # airflow
+  webapi:
+    build:
+      context: .
+      dockerfile: ./webapp-demo/Dockerfile
+    hostname: 'webapi'
+    ports:
+      - "81:80"
+    volumes:
+      - ./webapp-demo/app:/app
+      - ./webapp-demo/static:/static
+      - ./webapp-demo/Predictions:/Predictions
       

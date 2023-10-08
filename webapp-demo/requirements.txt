@@ -1,0 +1,10 @@
+pandas~=2.1.1
+# calendar
+# datetime
+fastapi~=0.103.2
+scikit-learn
+uvicorn
+lightgbm==3.3.2
+numpy~=1.26.0
+starlette~=0.27.0
+pydantic~=2.4.2
