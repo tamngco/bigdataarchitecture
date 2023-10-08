@@ -98,13 +98,12 @@ services:
       - ./nifi/conf:/opt/nifi/nifi-current/conf
 
   spark_master:
-    image: docker.io/bitnami/spark:3
+    image: docker.io/bitnami/spark:latest
     container_name: spark_master
     hostname: spark_master
     user: root
     volumes:
       - ./scripts:/dev/scripts
-      - ./jars:/opt/jars
     environment:
       - SPARK_MODE=master
       - SPARK_LOCAL_IP=spark_master
@@ -405,4 +404,5 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-  
+  # airflow
+      
