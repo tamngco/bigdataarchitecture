@@ -4,7 +4,7 @@
 git clone https://github.com/tamngco/bigdata_webapp_and_api.git
 ```
 ### Step 2:Chuẩn bị dữ liệu
-- Tải về dữ liệu Logistics tại: https://drive.google.com/drive/folders/1X3RFIvtMTrzpKYakYzLGeuNwumThGlgB?usp=sharing
+- Tải về dữ liệu Logistics tại: https://drive.google.com/drive/folders/1EoWVyDO4Iokex_uqLvPwYyf9uP49NK9T?usp=sharing
   - Sau khi tải về, bạn sẽ có 02 files:
     logistics.mdf và logistics_log.ldf
 - Copy 02 file này vào thư mục docker:
@@ -15,8 +15,11 @@ git clone https://github.com/tamngco/bigdata_webapp_and_api.git
 ```
 docker-compose up
 ```
-### Step 4: Restore dữ liệu Clickhouse
 
+### Step 4: Restore dữ liệu Clickhouse
+- Tải về database tại đây: https://drive.google.com/drive/folders/1EzoNTRPcsjf17EDU0wPY-0mT_iM_Zn0F?usp=sharing
+  - Sau khi tải về, bạn sẽ có 01 file: logistic_data_FN_Oct04.csv
+- Sử dụng một công cụ quản lý database (vd: DBeaver) để restore file CSV vừa tải về vào database có tên là **logistics_bi**
 
 ### Setup Superset
 - Trong command prompt, chạy các lệnh sau:
