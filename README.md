@@ -1,7 +1,7 @@
 ## Hướng dẫn tải về và sử dụng Big Data WebApp (demo) và API
 ### Bước 1: Tải về source code Docker
 ```
-git clone https://github.com/tamngco/bigdata_webapp_and_api.git
+git clone [https://github.com/tamngco/bigdata_webapp_and_api.git](https://github.com/tamngco/bigdataarchitecture.git)
 ```
 ### Step 2:Chuẩn bị dữ liệu
 - Tải về dữ liệu Logistics tại: https://drive.google.com/drive/folders/1EoWVyDO4Iokex_uqLvPwYyf9uP49NK9T?usp=sharing
