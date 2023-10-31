@@ -64,7 +64,40 @@ docker restart superset-app
 
 - Bấm vào [Logistics_dashboard] để xem.
 
-### Step 6: Truy cập và dùng thử ứng dụng Thương mại điện tử (demo)
-- WebApp Demo: http://localhost:82
+### Hướng dẫn demo
+## Load dữ liệu từ Apache Nifi vào Data Lake (lớp Bronze)
+- Truy cập Apache Nifi tại địa chỉ: https://localhost:8443/nifi/login
+  - Đăng nhập với user là **admin**, pass là **Password123qwe**
+  - Nhấn chuột phải vào processor **ExecuteSQL** chọn **Run once** (chờ cho đến khi Out của PutS3Object hiển thị số 1 là thành công)
+
+## Transform dữ liệu từ Bronze -> Silver
+- Chạy dòng lệnh:
+```
+docker exec -it spark_master spark-submit /dev/scripts/airflow_bronze_to_silver.py
+```
+
+## Transform dữ liệu từ Silver -> Gold
+- Chạy dòng lệnh:
+```
+docker exec -it spark_master spark-submit /dev/scripts/airflow_silver_to_gold.py
+```
+
+## Kiểm tra dữ liệu trong Data Lake
+- Truy cập MinIO Object Storage tại: http://localhost:9001/login
+- Đăng nhập với user là **minioadmin**, pass là **minioadmin**
+- Xem các bucket: Bronze, Silver, Gold, MLModel
+
+## Load dữ liệu từ Gold sang Clickhouse
+- Truy cập Airflow tại địa chỉ: http://localhost:8085
+- Đăng nhập với user là **airflow**, pass là **airflow**
+- Chọn DAG **Gold To ClickHouse** và bấm **Trigger DAG** (biểu tượng Play)
+
+## Sử dụng Dashboard
+- Truy cập superset tại địa chỉ: http://localhost:8088
+- Đăng nhập với user là **admin**, pass là **admin**
+
+## Truy cập ứng dụng Thương mại điện tử (demo)
+- Truy cập tại địa chỉ: http://localhost:82
+- Bấm nút **Tính toán thời gian giao hàng**
 
 ### Mọi thắc mắc vui lòng email về: tamgr.nguyen@gmail.com
